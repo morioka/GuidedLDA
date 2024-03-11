@@ -1,6 +1,6 @@
 #!/bin/bash
 # bash strict mode
-set -euo pipefail
+set -eu pipefail
 IFS=$'\n\t'
 
 err() {
@@ -9,15 +9,7 @@ err() {
 
 make cython
 
-read -p "Ok to continue (y/n)? " answer
-case ${answer:0:1} in
-    y|Y )
-        echo "Building distribution"
-        python setup.py clean
-        python setup.py build_ext --inplace
-        python setup.py sdist --formats=gztar
-    ;;
-    * )
-        echo "Not building distribution"
-    ;;
-esac
+echo "Building distribution"
+python setup.py clean
+python setup.py build_ext --inplace
+python setup.py sdist --formats=gztar

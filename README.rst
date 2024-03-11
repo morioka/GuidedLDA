@@ -29,7 +29,7 @@ If pip install does not work, then try the next step:
 
     https://github.com/vi3k6i5/GuidedLDA
     cd GuidedLDA
-    sh build_dist.sh
+    bash build_dist.sh
     python setup.py sdist
     pip install -e .
 
